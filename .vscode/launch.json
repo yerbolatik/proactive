@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python Debugger: Django",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\manage.py",
+      "console": "internalConsole",
+      "args": ["runserver"],
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "django": true,
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/",
+        "DJANGO_SETTINGS_MODULE": "base.settings",
+        "OTHER_ENV_VARIABLE": "value"
+      }
+    },
+
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}
