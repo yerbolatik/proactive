@@ -11,8 +11,6 @@ from users.forms import (EmailVerification, UserLoginForm, UserProfileForm,
                          UserRegistrationForm)
 from users.models import User
 
-# Create your views here.
-
 
 class UserLoginView(LoginView):
     template_name = 'users/login.html'

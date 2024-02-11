@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path('C:/Users/Yerbolat/Documents/GitHub/proactive')
 
 
 # Quick-start development settings - unsuitable for production
@@ -173,18 +174,18 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Sending Emails
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 465
 # EMAIL_HOST_USER = 'yerbolat.assabay@gmail.com'
 # EMAIL_HOST_PASSWORD = 'qgly xkuj edpn nnwc'
 # EMAIL_USE_SSL = True
 
-# EMAIL_HOST = 'smtp.yandex.ru'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'proactivekz@yandex.ru'
-# EMAIL_HOST_PASSWORD = 'vjuotcfdkyrjgdlp'
-# EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'proactivekz@yandex.ru'
+EMAIL_HOST_PASSWORD = 'vjuotcfdkyrjgdlp'
+EMAIL_USE_SSL = True
 
 
 # oAuth
