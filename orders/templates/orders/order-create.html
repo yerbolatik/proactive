@@ -20,7 +20,10 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div class="w-75">
               <h6 class="my-0">{{ basket.product.name }}</h6>
-              <small class="text-muted">{{ basket.quantity }}</small>
+              <small class="text-muted"
+                >{{ basket.quantity }} шт. x {{basket.product.price|intcomma}}
+                тг.
+              </small>
             </div>
             <span class="text-muted">{{ basket.sum|intcomma }} тг.</span>
           </li>

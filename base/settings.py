@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path('C:/Users/Yerbolat/Documents/GitHub/proactive')
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -209,3 +210,13 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+
+# Stripe
+
+STRIPE_PUBLIC_KEY = 'pk_test_51OjEJ6HZeXxR0S408YWhJ16i2rfFMwdJoDW5OzonghMNmQifVTA1mTRTLg13aUccLsyRR4BJ1hJ8ZWPOahpq4xTZ00ejS5H1x9'
+STRIPE_SECRET_KEY = 'sk_test_51OjEJ6HZeXxR0S40U2L4RGKULjdefy3YdqrID4osmDigzrLiPD3k9lr4SHrVH5uj3gCWxt0mdTgw0vTTAOIcIMSI00jFXHAwsB'
+STRIPE_WEBHOOK_SECRET = 'whsec_7f65bd5cfb76007baf2667637dbda13dfd79ad9d224e37278658b083c7a64783'
+
+# STRIPE_PUBLIC_KEY = 'pk_live_51OjEJ6HZeXxR0S40nhMEIqV8s7MSUXFDsa5BGr22pdAUwoBezB1wO7BC8ESApqWQBM71VJ1WpZlqeMG0i0AMOv2s00E17Rt9YX'
+# STRIPE_SECRET_KEY = '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'
