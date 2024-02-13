@@ -10,7 +10,7 @@ admin.site.register(ProductCategory)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'quantity', 'category')
     fields = ('name', 'image', 'short_description', 'description',
-              'price', 'quantity', 'category')
+              'price', 'quantity', 'category', 'stripe_product_price_id')
     search_fields = ('name',)
     # sort:
     ordering = ('name', )
