@@ -13,9 +13,9 @@ class UserRegistrationViewTestCase(TestCase):
 
     def setUp(self):
         self.data = {
-            'first_name': 'erbolat', 'last_name': 'ssabay',
-            'username': 'erbolat', 'email': 'email@gmail.com',
-            'password': 'Parol12345', 'password2': 'Parol12345',
+            'first_name': 'test', 'last_name': 'test',
+            'username': 'test', 'email': 'test@gmail.com',
+            'password1': 'Parol12345', 'password2': 'Parol12345',
         }
         self.path = reverse('users:registration')
 
@@ -31,17 +31,18 @@ class UserRegistrationViewTestCase(TestCase):
         self.assertFalse(User.objects.filter(username=username).exists())
         response = self.client.post(self.path, self.data)
 
-        # # check user creating
-        # self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        # self.assertRedirects(response, reverse('users:login'))
-        # self.assertTrue(User.objects.filter(username=username).exists())
+        # check creating of user
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
+        self.assertRedirects(response, reverse('users:login'))
+        self.assertTrue(User.objects.filter(username=username).exists())
 
-        # check email verification creating
-        # email_verification = EmailVerification.objects.filter(user__username=username)
-        # self.assertEqual(
-        #     email_verification.first().expiration.date(),
-        #     (now() + timedelta(hours=48)).date()
-        # )
+        # check creating of email verification
+        email_verification = EmailVerification.objects.filter(user__username=username)
+        self.assertTrue(email_verification.exists())
+        self.assertEqual(
+            email_verification.first().expiration.date(),
+            (now() + timedelta(hours=48)).date()
+        )
 
     def test_user_registration_post_error(self):
         User.objects.create(username=self.data['username'])

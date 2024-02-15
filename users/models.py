@@ -30,8 +30,7 @@ class EmailVerification(models.Model):
                        "email": self.user.email, "code": self.code})
         verification_link = f"{settings.DOMAIN_NAME}{link}"
         subject = f"Подтверждение учетной записи для {self.user.username}"
-        message = f"Для подтвеждения учетной записи для {
-            self.user.email} перейдите по ссылке: {verification_link}"
+        message = f"Для подтвеждения учетной записи для {self.user.email} перейдите по ссылке: {verification_link}"
 
         # Создаем сообщение MIME
         msg = MIMEMultipart()
