@@ -15,6 +15,7 @@ from users.models import User, EmailVerification
 class UserLoginView(LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
+    title = 'Proactive - Авторизация'
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
