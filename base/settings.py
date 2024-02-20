@@ -50,7 +50,7 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'debug_toolbar',
-    'django_extensions',
 
     'orders',
     'products',
@@ -189,10 +188,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = (
-        BASE_DIR / 'static',
+        BASE_DIR/'static',
     )
 else:
-    STATIC_ROOT = BASE_DIR / 'static'
+    STATIC_ROOT = BASE_DIR/'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

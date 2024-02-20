@@ -1,10 +1,28 @@
 body {
-    background: url("../img/wallpaper.jpg") no-repeat center top fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    /* Общие стили для всех устройств */
     padding-top: 56px;
+}
+
+/* Стили для устройств с шириной экрана больше 768px (например, планшеты и компьютеры) */
+@media (min-width: 769px) {
+    body {
+        background: url("../img/wallpaper.jpg") no-repeat center top fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+/* Стили для устройств с шириной экрана меньше или равной 768px (например, мобильные устройства) */
+@media (max-width: 768px) {
+    body {
+        background: url("../img/wallpaper_2.jpg") no-repeat center top fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
 }
 
 #start-purchase-btn {

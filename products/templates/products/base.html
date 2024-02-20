@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-
+    <link rel="icon" type="image/x-icon" href="/static/vendor/img/favicon.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:index'%}">Каталог <i class="fas fa-shopping-bag"></i> </a>
+                    <a class="nav-link" href="{% url 'products:index'%}"><i class="fas fa-shopping-bag"></i> Каталог </a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
+                        <a class="nav-link" href="{% url 'users:login' %}"><i class="fas fa-sign-in-alt"></i> Войти </a>
                     </li>
                 {% endif %}
             </ul>
