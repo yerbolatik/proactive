@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:index'%}"><i class="fas fa-shopping-bag"></i> Каталог </a>
+                    <a class="nav-link" style="color:white;" href="{% url 'products:index'%}"><i class="fas fa-shopping-bag"></i> Каталог </a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
+                            <i class="fas fa-user-circle"></i> {{ user.username }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
@@ -61,7 +61,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:login' %}"><i class="fas fa-sign-in-alt"></i> Войти </a>
+                        <a class="nav-link" style="color:white;" href="{% url 'users:login' %}"><i class="fas fa-sign-in-alt"></i> Войти </a>
                     </li>
                 {% endif %}
             </ul>
