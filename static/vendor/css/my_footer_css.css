@@ -1,0 +1,14 @@
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40;
+  padding: 10px 0;
+}
+
+.footer-static {
+  position: static;
+  width: 100%;
+  background-color: #343a40;
+  padding: 10px 0;
+}

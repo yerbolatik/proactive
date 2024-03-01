@@ -1,0 +1,21 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    gap: 5px; /* Расстояние между элементами */
+    background-color: transparent;
+
+}
+
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+    text-decoration: underline;
+}
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}

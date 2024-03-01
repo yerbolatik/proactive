@@ -13,7 +13,7 @@ from django.views.generic.list import ListView
 from common.views import TitleMixin
 from orders.forms import OrderForm
 from orders.models import Order
-from products.models import Basket
+from baskets.models import Basket
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 # Create your views here.
@@ -54,6 +54,12 @@ class OrderCreateView(TitleMixin, CreateView):
     form_class = OrderForm
     success_url = reverse_lazy('orders:order_create')
     title = 'Proactive - Оформление заказа'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        baskets = Basket.objects.filter(user=self.request.user)
+        context['baskets'] = baskets
+        return context
 
     def post(self, request, *args, **kwargs):
         super(OrderCreateView, self).post(request, *args, **kwargs)

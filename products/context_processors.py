@@ -1,6 +1,6 @@
-from products.models import Basket
+# from baskets.models import Basket
 
 
-def baskets(request):
-    user = request.user
-    return {'baskets': Basket.objects.filter(user=user) if user.is_authenticated else []}
+# def baskets(request):
+#     user = request.user
+#     return {'baskets': Basket.objects.filter(user=user) if user.is_authenticated else []}

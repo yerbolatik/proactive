@@ -32,6 +32,7 @@ urlpatterns = [
     # namespace - указывает пространство имен для URL этого приложения.
 
     path('users/', include('users.urls', namespace='users')),
+    path('basket/', include('baskets.urls', namespace='basket')),
     path('accounts/', include('allauth.urls')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('webhook/stripe/', stripe_webhook_view, name='stripe_webhook'),
