@@ -1,13 +1,12 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import HttpResponseRedirect, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
-from common.views import TitleMixin
-from products.models import Product, ProductCategory
 from baskets.models import Basket
+from common.views import TitleMixin
 from informations.models import DeliveryInformation, ReturnInformation
+from products.models import Product, ProductCategory
 
 
 class IndexView(TitleMixin, TemplateView):

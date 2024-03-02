@@ -32,7 +32,7 @@ $(document).ready(function () {
                 // Через 7сек убираем сообщение
                 setTimeout(function () {
                     hideNotification();
-                }, 700);
+                }, 1000);
 
                 // Увеличиваем количество товаров в корзине (отрисовка в шаблоне)
                 basketCount++;

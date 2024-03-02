@@ -72,13 +72,11 @@
                 </a>
             </div>
             {% endif %}
-
             <div id="overlay" style="display: none;"></div>
             <div id="notification-container" class="notification-container" style="display: none;">
-             <div id="jq-notification" class="alert alert-success">
-                Хей
-            <!-- Здесь будет отображаться текст уведомления -->
-            </div>
+                <div id="jq-notification" class="alert alert-success">
+                    <!-- Здесь будет отображаться текст уведомления -->
+                </div>
             </div>
 
             <div class="row">
@@ -100,10 +98,14 @@
                             </div>
                             
                             <div class="card-footer text-center">
+                                {% if request.user.is_authenticated %}
                                 <a class="btn btn-outline-success btn add-to-basket"  href="{% url 'baskets:basket_add' %}" data-product-id="{{ product.id }}">
-                                   {% csrf_token %}
-                                    Добавить в корзину
-                            </a>
+                                    {% csrf_token %}
+                                     Добавить в корзину
+                                </a>
+                                {% else %}
+                                <a href="{% url 'users:login' %}?next={% url 'products:index' %}" class="btn btn-outline-success btn">Добавить в корзину</a>
+                                {% endif %}
                             </div>
                     </div>
                 </div>

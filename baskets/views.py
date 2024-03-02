@@ -1,14 +1,13 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
+from django.views.generic.base import TemplateView
+
 from baskets.models import Basket
 from baskets.utils import get_user_baskets
-from django.views.generic.base import TemplateView
 from common.views import TitleMixin
-
-
-from products.models import Product
 from informations.models import DeliveryInformation
+from products.models import Product
 
 
 class BasketDetailView(TitleMixin, TemplateView):

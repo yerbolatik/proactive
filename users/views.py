@@ -1,25 +1,34 @@
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.views import LoginView
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden
-from django.shortcuts import HttpResponseRedirect, render, redirect
+from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 
-from common.views import TitleMixin
 from baskets.models import Basket
-from users.forms import (UserLoginForm, UserProfileForm,
-                         UserRegistrationForm)
-from users.models import User, EmailVerification
+from common.views import TitleMixin
+from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
+from users.models import EmailVerification, User
 
 
 class UserLoginView(TitleMixin, LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
     title = 'Proactive - Авторизация'
+
+    def get_success_url(self):
+        # Получаем параметр 'next' из GET запроса
+        next_url = self.request.GET.get('next', None)
+        if next_url:
+            # Если 'next' существует, возвращаем его как URL для перенаправления после успешной авторизации
+            return next_url
+        else:
+            # Если 'next' не указан, перенаправляем пользователя на страницу с продуктами
+            return reverse_lazy('products:index')
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):

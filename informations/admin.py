@@ -1,10 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib import admin
 from django.db import models
-from ckeditor.widgets import CKEditorWidget
 
-
-from informations.models import DeliveryInformation, ReturnInformation
 from informations.forms import DeliveryInformationForm, ReturnInformationForm
+from informations.models import DeliveryInformation, ReturnInformation
 
 
 @admin.register(DeliveryInformation)

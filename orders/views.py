@@ -10,10 +10,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 
+from baskets.models import Basket
 from common.views import TitleMixin
 from orders.forms import OrderForm
 from orders.models import Order
-from baskets.models import Basket
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 # Create your views here.
