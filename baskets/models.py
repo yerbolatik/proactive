@@ -5,7 +5,6 @@ from users.models import User
 
 
 class BasketQueryset(models.QuerySet):
-
     def total_sum(self):
         return sum(basket.sum() for basket in self)
 
@@ -26,7 +25,6 @@ class BasketQueryset(models.QuerySet):
 
 
 class Basket(models.Model):
-
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь')
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE, verbose_name='Товар')
     quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Количество')
@@ -40,11 +38,17 @@ class Basket(models.Model):
 
     objects = BasketQueryset().as_manager()
 
-    def sum(self):
-        return round(self.product.sell_price() * self.quantity)
-
     def __str__(self):
-        if self.user:
-            return f'Корзина {self.user.username} | Товар {self.product.name} | Количество {self.quantity}'
+        return f'Корзина {self.user.username} | Товар {self.product.name} | Количество {self.quantity}'
 
-        return f'Анонимная корзина | Товар {self.product.name} | Количество {self.quantity}'
+    def sum(self):
+        return self.product.price * self.quantity
+
+    def de_json(self):
+        basket_item = {
+            'product_name': self.product.name,
+            'quantity': self.quantity,
+            'price': float(self.product.price),
+            'sum': float(self.sum()),
+        }
+        return basket_item

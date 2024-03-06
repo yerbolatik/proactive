@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Checkout canceled</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section>
-      <p>
-        Forgot to add something to your cart? Shop around then come back to pay!
-      </p>
-    </section>
-  </body>
-</html>
+{% extends "products/base.html" %} {% load humanize %} {% block title %}
+Оформление заказа отменено {% endblock %} {% block content %}
+<section>
+  <div style="text-align: center; margin-top: 100px;">
+    <p>
+      Забыли что-то добавить в корзину? Делайте покупки, а затем возвращайтесь,
+      чтобы заплатить!
+    </p>
+</section>
+{% endblock %}

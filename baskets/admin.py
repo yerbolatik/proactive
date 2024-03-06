@@ -21,7 +21,6 @@ class BasketAdmin(admin.ModelAdmin):
     def user_display(self, obj):
         if obj.user:
             return str(obj.user)
-        return "Анонимный пользователь"
 
     def product_display(self, obj):
         return str(obj.product.name)

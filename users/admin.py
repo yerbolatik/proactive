@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from baskets.admin import BasketTabAdmin
 from users.models import EmailVerification, User
 
 # Register your models here.
@@ -8,6 +9,7 @@ from users.models import EmailVerification, User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username',)
+    inlines = [BasketTabAdmin,]
 
 
 @admin.register(EmailVerification)
