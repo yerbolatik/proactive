@@ -45,11 +45,14 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" style="color:white;" href="{% url 'products:index'%}"><i class="fas fa-shopping-bag"></i> Каталог </a>
+                        <a class="nav-link" style="color:white;" href="{% url 'products:index'%}"><i class="fas fa-tshirt"></i>
+                            <span class="d-inline d-lg-none">Каталог</span></a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
-                        <a class="nav-link" style="color:white;" href="{% url 'baskets:basket_detail' %}"><i class="fas fa-shopping-cart"></i> Корзина</a>
+                        <a class="nav-link" style="color:white;" href="{% url 'baskets:basket_detail' %}"><i class="fas fa-shopping-bag"></i> 
+                        <span class="d-inline d-lg-none">Корзина</span>
+                        </a>
                     </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button"
