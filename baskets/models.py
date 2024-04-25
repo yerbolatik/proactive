@@ -52,3 +52,29 @@ class Basket(models.Model):
             'sum': float(self.sum()),
         }
         return basket_item
+
+    @classmethod
+    def create_or_update(cls, product_id, user):
+        try:
+            product = Product.objects.get(id=product_id)
+        except Product.DoesNotExist:
+            return None, False
+
+        if user.is_authenticated:
+            baskets = cls.objects.filter(user=user, product=product)
+        else:
+            session_key = user.session.session_key
+            baskets = cls.objects.filter(session_key=session_key, product=product)
+
+        if baskets.exists():
+            basket = baskets.first()
+            basket.quantity += 1
+            basket.save()
+        else:
+            if user.is_authenticated:
+                basket = cls.objects.create(user=user, product=product, quantity=1)
+            else:
+                session_key = user.session.session_key
+                basket = cls.objects.create(session_key=session_key, product=product, quantity=1)
+
+        return basket, True

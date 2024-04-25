@@ -24,14 +24,11 @@ class BasketDetailView(TitleMixin, TemplateView):
 
 
 def basket_add(request):
-
     product_id = request.POST.get("product_id")
-
     product = Product.objects.get(id=product_id)
 
     if request.user.is_authenticated:
         baskets = Basket.objects.filter(user=request.user, product=product)
-
         if baskets.exists():
             basket = baskets.first()
             if basket:
@@ -39,7 +36,6 @@ def basket_add(request):
                 basket.save()
         else:
             Basket.objects.create(user=request.user, product=product, quantity=1)
-
     else:
         baskets = Basket.objects.filter(
             session_key=request.session.session_key, product=product)
